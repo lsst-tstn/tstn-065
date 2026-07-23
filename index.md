@@ -1,10 +1,8 @@
 # Tunable Laser
 
-```{abstract}
-The Tunable Laser subsystem provides monochromatic illumination for the Rubin Flatfield Calibration System. The Tunable Laser delivers monochromatic light (line width of 1~nm) across the LSST operational wavelength range of 320–1125 nm. The laser is housed in a dedicated environmentally-controlled enclosure on the rotating dome structure and delivers light to the flatfield projector and the Collimated Beam Projector (CBP) via 20 m optical fibers. This note describes the laser hardware, the thermal enclosure, electronics and control, and laser safety.
-```
-
 ## Introduction
+
+The Tunable Laser is part of the Rubin Calibration System, [TSTN-066](https://tstn-066.lsst.io/).
 
 Monochromatic flatfield illumination is required to characterize the wavelength-dependent throughput of the Rubin optical system, including the filters, mirrors, lenses, and detector quantum efficiency, as a function of focal plane position. This use case requires a tunable source covering the full LSST wavelength range of 320–1125 nm in steps as small as 1 nm, with a linewidth not exceeding 1 nm FWHM.
 
@@ -93,7 +91,7 @@ The laser and the FCU are both mounted on platforms. These connect to the frame 
 The FCU sits to the left of the Tunable Laser. They can be aligned with eachother by adjusting the platforms each are mounted to independently.
 ```
 
-The cover is connected to 4 XX that help to open and close it. Because of the size and thinness of the top, it can easily be twisted. WHen opening, it is important to do so slowly using two handles furthest from eachother. The top has torn in some places due to torque. The top is connected to an interlock, so if it's opened, the laser will turn off. There are three ports that can be opened to access the bottom of the laser. These three panels have captive screws.
+The cover is connected to 4 spring assemblies that help to open and close it. Because of the size and thinness of the top, it can easily be twisted. WHen opening, it is important to do so slowly using two handles furthest from eachother. The top has torn in some places due to torque. The top is connected to an interlock, so if it's opened, the laser will turn off. There are three ports that can be opened to access the bottom of the laser. These three panels have captive screws.
 
 (thermal-control)=
 ### Thermal Control
@@ -187,7 +185,7 @@ Lifting fixture mounted on the laser enclosure, being brought from L5 up to L7 w
 
 We have planned for maintenance on the laser once a year. This requires bringing the laser down and cleaning optics and adjusting mirrors, etc. While one laser is under maintenance, the other could be installed. Thus far, we have had Ekspla representatives come out for this maintenance.
 
-We have to date had to major issues with the NT242 laser:
+We have to date had two major issues with the NT242 laser:
 1. After maintenance in Tucson, we had some dust get onto the tip of a fiber. That caused a catestrophic failure, and the laser had to be sent back to Ekspla for repair
 2. During a recent maintenance trip in Chile, after a thermal board was replaced, damage occured to a polarizer optic. It is expected this happened due to ongoing damage due to the broken thermal board, which was then exacerbated when the new board was installed.
 
@@ -210,5 +208,4 @@ In cases where the NT242 is unavailable, the NT252 can be used as a backup. It r
 
 (troubleshooting)=
 ## Troubleshooting
-
-- **Laser interlock fault / unable to enable laser:** verify that the enclosure lid is fully closed and the keyed interlock switch is in the enabled position. Check the GIS status for any active inhibit conditions (dome access, emergency stop, earthquake, telescope safety event). Resolve the inhibit condition before attempting to re-enable.
+All troubleshooting documentation can be found on the Observatory Operations Documentation [Confluence Pages for MTCalSys](https://rubinobs.atlassian.net/wiki/spaces/OOD/pages/927596578/MTCalSys+Troubleshooting).

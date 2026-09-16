@@ -10,10 +10,11 @@ The tunable laser subsystem fulfills this requirement using an Ekspla NT242 (Mai
 
 The laser enclosure is mounted on the rotating dome structure, in close proximity to the flatfield projector, to minimize fiber transmission losses. Because the Ekspla lasers were designed for stable laboratory operation, a dedicated environmentally-controlled enclosure was developed to maintain them within their specified 18–25 °C operating range under the variable thermal conditions of the open-air Rubin summit enclosure.
 
-This note covers the laser hardware (Sec. [Laser Hardware](#laser-hardware)), the laser enclosure and its thermal control system (Sec. [Laser Enclosure](#laser-enclosure)), electronics and control (Sec. [Electronics and Control](#electronics-and-control)), and laser safety (Sec. [Laser Safety](#laser-safety)). The use of the tunable laser output within the flatfield projector optics is described in the Flatfield Projector [Tech Note](https://tstn-060.lsst.io/). The use within the CBP is described in the CBP [Tech Note](https://tstn-067.lsst.io/). Additionally, there is another tech note dedicated to the laser electrical cabinet ([TSTN-039](https://tstn-039.lsst.io))
+This note covers the [laser hardware](#laser-hardware), the [laser enclosure](#laser-enclosure) and its thermal control system, [electronics and Ccontrol](#electronics-and-control), and [laser safety](#laser-safety). The use of the tunable laser output within the flatfield projector optics is described in the Flatfield Projector ([TSTN-060](https://tstn-060.lsst.io/)). The use within the CBP is described in the CBP ([TSTN-067](https://tstn-067.lsst.io/)). Additionally, there is another tech note dedicated to the laser electrical cabinet ([TSTN-068](https://tstn-068.lsst.io/))
 
 (laser-hardware)=
 ## Laser Hardware
+The Ekspla Laser User Manual and other information can be found on [Docushare](https://docushare.lsst.org/docushare/dsweb/View/Collection-14502).
 
 ### Main Laser
 
@@ -58,15 +59,27 @@ Laser output is routed to a Fiber Coupling Unit (FCU), which directs the beam fr
 
 All drawings for the laser enclosure can be found on Docushare [Collection-14799](https://docushare.lsst.org/docushare/dsweb/View/Collection-14799).
 
-The Ekspla lasers were designed for laboratory operation in an air-conditioned environment with a specified operating temperature range of 18–25 °C. Because the laser must be mounted on the rotating dome structure in close proximity to the flatfield projector in order to minimize fiber transmission losses, a dedicated environmentally-controlled enclosure was developed for summit operation. Prior to shipment to Rubin Observatory, the enclosure design was validated through thermal testing in a controlled chamber in Tucson and at the summit of Kitt Peak National Observatory.
+The Ekspla lasers were designed for laboratory operation in an air-conditioned environment with a specified operating temperature range of 18–25 °C. 
+Because the laser must be mounted on the rotating dome structure in close proximity to the flatfield projector in order to minimize fiber transmission losses, a dedicated environmentally-controlled enclosure was developed for summit operation. 
 
 ```{figure} laser_enclosure_photo.jpg
 :name: laser-enclosure-photo
 
 The laser enclosure installed on the calibration screen support structure inside the Rubin Observatory dome. The electronics cabinets are secured below the platform.
 ```
+The Laser Enclosure houses:
 
-The enclosure houses the laser head, power supply, thermal control hardware, environmental sensors, and power monitoring instrumentation. It has a total mass of approximately 590 kg (1300 lbs) including the lifting bar, and sits on a platform connected to the calibration screen support structure. As viewed from the telescope, it is positioned to the lower right of the calibration screen. Power and communications are routed to the enclosure from an electronics cabinet mounted directly below. The two 20 m optical fibers exit the enclosure and are carefully routed to the CBP and the flatfield projector respectively.
+* Ekspla laser
+* laser power supply
+* thermal control hardware
+* environmental sensors
+* power monitoring instrumentation
+
+It has a total mass of approximately 590 kg (1300 lbs) including the lifting bar, and sits on a platform connected to the calibration screen support structure. 
+As viewed from the telescope, it is positioned to the lower right of the calibration screen. 
+
+Power and communications are routed to the enclosure from an electronics cabinet mounted directly below. 
+The two 20 m optical fibers exit the enclosure and are carefully routed to the CBP and the flatfield projector respectively.
 
 ```{figure} laser_enclosure_ron.jpg
 :name: laser-enclosure-ron
@@ -74,7 +87,12 @@ The enclosure houses the laser head, power supply, thermal control hardware, env
 The laser enclosure opened, with Ron Harris standing by. You can clearly see the frame that the laser and FCU are mounted on.
 ```
 
-The laser head and the FCU sit on a frame that is mounted directly over the power supply. When the laser needs to be removed from the enclosure, the frame can be lifted with a crane and caster wheels can be put on the frame and placed on the ground itself. Care must be taken, as the fibers that run from the laser to the power supply can **never** be disconnected. 
+The laser head and the FCU sit on a frame that is mounted directly over the power supply. 
+When the laser needs to be removed from the enclosure, the frame can be lifted with a crane and caster wheels can be put on the frame and placed on the ground itself. 
+
+:::{warning}
+    Fibers that run from the laser to the power supply can **never** be disconnected. 
+:::
 
 ```{figure} laser_enclosure_out.png
 :name: laser-enclosure_out
@@ -91,20 +109,29 @@ The laser and the FCU are both mounted on platforms. These connect to the frame 
 The FCU sits to the left of the Tunable Laser. They can be aligned with eachother by adjusting the platforms each are mounted to independently.
 ```
 
-The cover is connected to 4 spring assemblies that help to open and close it. Because of the size and thinness of the top, it can easily be twisted. WHen opening, it is important to do so slowly using two handles furthest from eachother. The top has torn in some places due to torque. The top is connected to an interlock, so if it's opened, the laser will turn off. There are three ports that can be opened to access the bottom of the laser. These three panels have captive screws.
+The cover is connected to 4 spring assemblies that help to open and close it. Because of the size and thinness of the top, it can easily be twisted. When opening, it is important to do so slowly using two handles furthest from eachother. The top aluminum cover has torn in some places due to torque. 
+
+The top is connected to an interlock, so if it's opened, the laser will turn off. There are three ports that can be opened to access the bottom of the laser. These three panels have captive screws.
 
 (thermal-control)=
 ### Thermal Control
 
-The laser head is mounted on a support frame above the power supply and is surrounded by an additional insulated enclosure with dedicated forced-air circulation. Two resistive patch heaters are attached directly to the laser housing to provide supplemental heating during cold dome conditions. In practice, these external heaters are only required intermittently, because the laser's own internal heaters maintain approximately 15 W of continuous heating. Under typical conditions, the internal heaters maintain the laser temperature near 18 °C when the system is in standby mode.
+The laser head is mounted on an aluminum frame that sits over the power supply and is surrounded by an additional insulated enclosure. 
+This additional insulated enclosure has  dedicated forced-air circulation. 
+Two resistive patch heaters are attached directly to the laser housing to provide supplemental heating during cold dome conditions. 
+In practice, these external heaters are only required intermittently, because the laser's own internal heaters maintain approximately 15 W of continuous heating. 
+Under typical conditions, the internal heaters maintain the laser temperature near 18 °C when the system is in standby mode.
 
 ```{figure} laser_enclosure_final.png
 :name: laser-enclosure_final
 
-The Laser is covered in pink insulation, in addition to the additional insulation around the whole enclosure.
+The Laser has its own insulated enclosure made of pink insulation. This is in addition to the insulation secured to the inside of the whole enclosure.
 ```
 
-Thermal regulation of the laser enclosure is achieved through a combination of insulation, forced-air circulation, resistive patch heaters, and the continuously powered internal heaters that maintain the BBO crystals in a safe condition. There are two fans, one at the inlet (on the right if you are looking at the front), and one attached to the laser frame blowing air up into the laser specific enclosure. The outlet is at the other end, near the FCU. Both the inlet and outlet have filters.
+Thermal regulation of the laser enclosure is achieved through a combination of insulation, forced-air circulation, resistive patch heaters, and the continuously powered internal heaters that maintain the BBO crystals in a safe condition. 
+There are two fans, one at the inlet (on the right if you are looking at the front), and one attached to the laser frame blowing air up into the laser specific enclosure. 
+The outlet is at the other end, near the FCU. 
+Both the inlet and outlet have air filters that need to be changed periodically.
 
 ```{figure} laser_enclosure_fan.png
 :name: laser-enclosure_fan
@@ -112,23 +139,27 @@ Thermal regulation of the laser enclosure is achieved through a combination of i
 A fan is mounted directly to the laser frame, blowing air into the laser specific enclosure from the larger enclosure
 ```
 
+Although the laser is not strictly required to remain within its operational temperature range while idle, keeping it near the operating limits significantly reduces warm-up (or cool-down) time prior to calibration activities and reduces the number of thermal cycles, which are associated with increased risk of maintenance issues. During the transition from standby to operation, the laser temperature does briefly exceed the nominal 18–25 °C range; this excursion can affect overall output stability over that period. Fine-tuning of the thermal control system to reduce this excursion is ongoing.
+
 ```{figure} laser_temperatures.png
 :name: laser-temperatures
 
 Tunable laser and enclosure temperatures recorded during a representative night of monochromatic flat observations. The temperature rises rapidly after laser turn-on and oscillates as the ventilation fans cycle to maintain the system within its 18–25 °C operating range.
 ```
 
-Although the laser is not required to remain within its operational temperature range while idle, keeping it near the operating limits significantly reduces warm-up (or cool-down) time prior to calibration activities and reduces the number of thermal cycles, which are associated with increased risk of maintenance issues. During the transition from standby to operation, the laser temperature does briefly exceed the nominal 18–25 °C range; this excursion can affect overall output stability over that period. Fine-tuning of the thermal control system to reduce this excursion is ongoing.
+Prior to shipment to Rubin Observatory, the enclosure design was validated through thermal testing in a controlled chamber in Tucson and at the summit of Kitt Peak National Observatory.
 
 
 (electronics-and-control)=
 ## Electronics and Control
 
-There is a separate tech note that describes the Laser Electronics Cabinet [TSTN-039](https://tstn-039.lsst.io). 
+There is a separate tech note that describes the Laser Electronics Cabinet [TSTN-068](https://tstn-068.lsst.io/). 
 
 Power and communications for the laser enclosure are routed from an electronics cabinet mounted on the calibration screen support structure directly below the enclosure platform. Power at 220 VAC/16A is delivered via slip rings to the rotating dome section. A UPS protects against short power interruptions and ensures the laser internal heaters remain powered at all times to protect the BBO crystals.
 
 Both the NT242 and NT252 are controlled via RS-232 through a Moxa serial device server. A more limited Ethernet interface is also available on each laser. The FCU is controlled separately; because the NT252 was not originally designed to interface with the FCU, an independent fiber-coupling controller was developed by Ekspla for that laser.
+
+The tunable laser is commanded throught the [TunableLaser CSC](https://ts-xml.lsst.io/sal_interfaces/TunableLaser.html). Additionally, there is a windows machine in the laser electronics cabinet that can be accessed at `laser-powermonitor.cp.lsst.org`. This machine is used to read the power meter in the laser enclosure as well as has downloaded several useful GUIs to communicate directly with the laser, including CANBrowser, as developed by Ekspla.
 
 
 (laser-safety)=
@@ -140,18 +171,17 @@ There are 4 main interlocks for this laser:
 1. Laser Enclosure Lid
     * When the lid to the enclosure (black coffin) is opened, power is cut to everything within the enclosure
 2. Laser Key: 
-    * The laser cannot be operated if the key inserted and turned to ON
+    * The laser cannot be operated until the key is inserted and turned to ON
     * The key will only be available to a restricted group
 3. Laser GIS
     * This interlock is always enabled
     * If the interlock is triggered, the laser stops propagating immediately
-    * It is triggered by: TMA-Dome Estops, Earthquake, GIS internal failure, L7 gate
 4. Audio trigger
     * If the optical fiber is misaligned with the laser beam it produces a 1kHz signal. 
     * If this sound is heard by and internal microphone, the interlock is triggered
     * If the interlock is triggered, the laser stops propagating immediately
 
-The laser safety system is integrated with the observatory's Global Interlock System (GIS). Laser operation is automatically inhibited under conditions including:
+The laser GIS is integrated with the observatory's Global Interlock System (GIS). Laser operation is automatically inhibited under conditions including:
 
 - Dome access events
 - Emergency-stop activation
@@ -168,8 +198,6 @@ Additionally, there are several administration controls in place. This is especi
 ## Installation
 
 The laser enclosure sits on a platform connected to the calibration screen support structure and is positioned to the lower right of the calibration screen as viewed from the telescope. It was installed as part of the broader calibration screen and projector installation effort. The two 20 m output fibers are carefully routed from the enclosure to the flatfield projector (at the center of the calibration screen) and to the CBP platform respectively.
-
-
 
 The enclosure power and communications cables are routed from the electronics cabinet mounted directly below the platform. The GIS interlock connections to the enclosure lid sensors and keyed interlock switch are made as part of commissioning and verified before any laser operation is permitted.
 
@@ -189,10 +217,12 @@ We have to date had two major issues with the NT242 laser:
 1. After maintenance in Tucson, we had some dust get onto the tip of a fiber. That caused a catestrophic failure, and the laser had to be sent back to Ekspla for repair
 2. During a recent maintenance trip in Chile, after a thermal board was replaced, damage occured to a polarizer optic. It is expected this happened due to ongoing damage due to the broken thermal board, which was then exacerbated when the new board was installed.
 
+Weekly laser tests should identify if the output of the laser is changing over time and may trigger an earlier scheduling of maintenance.
+
+Additionally, the two air filters on the laser enclosure should be replaced twice a year.
+
 (operations)=
 ## Operations
-
-The tunable laser is commanded throught the [TunableLaser CSC](https://ts-xml.lsst.io/sal_interfaces/TunableLaser.html). There are also a couple GUIs that can be used to communicate with the laser directly over an ethernet connection. 
 
 The laser must remain powered at all times to protect the BBO crystals. In standby, the system draws approximately 15 W; this is normal and expected.
 
